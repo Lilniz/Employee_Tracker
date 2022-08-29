@@ -2,12 +2,18 @@ const cTable = require("console.table");
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
 
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
     host: "localhost",
     database: "employee_db",
     user: "root",
     password: "Ifuonlyknewsome1!",
 });
+
+connection.connect(err => {
+    if (err) throw err;
+    console.log("Starting the 3B's Employee Tracker.");
+    menu_start();
+})
 
 const menu_start = () => {
     inquirer.prompt([
