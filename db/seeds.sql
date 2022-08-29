@@ -4,7 +4,7 @@ VALUES
 ('Project Space'),
 ('Front of House');
 
-INSERT INTO job (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES 
 ('CEO',             175000,     2),
 ('President',       145000,     2),
@@ -14,7 +14,7 @@ VALUES
 ('Senior Planner',  65000,      1),
 ('Junior House',    54000,      3);
 
-INSERT INTO employee (first_name, last_name, job_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
 ('Lee',     'Boettcher',    1,     null),
 ('Kayla',   'Lime',         2,      1),
