@@ -27,7 +27,7 @@ const menu_start = () => {
                 'View all employees',
                 'Add a department',
                 'Add a role',
-                'Add and employee',
+                'Add an employee',
                 'Update an employee role',
                 'Exit'
             ],
@@ -59,7 +59,7 @@ const menu_start = () => {
                 connection.end();
                 break;
             default:
-                connection.end();
+                connection.resume();
         }
     })
 };
@@ -82,7 +82,7 @@ const viewRoles = () => {
 
 const viewEmployees = () => {
     connection.query(
-        'SELECT employee_id, first_name, last_name, title, salary, dept_name, department_id, manager_id FROM ((department JOIN job ON department.id = job.department_id) JOIN employe ON job.id = employee.job_id);', (err, res) => {
+        'SELECT employee.id, first_name, last_name, title, salary, dept_name, manager_id FROM ((department JOIN role ON department.id = role.department_id) JOIN employee ON role.id = employee.role_id);', (err, res) => {
             if (err) throw err;
             console.table(res)
             menu_start()
