@@ -23,36 +23,36 @@ const menu_start = () => {
             message: 'What would you like to do?',
             choices: [
                 'View all Departments',
-                'View all roles',
-                'View all employees',
-                'Add a department',
-                'Add a role',
-                'Add an employee',
-                'Update an employee role',
+                'View all Roles',
+                'View all Employees',
+                'Add a Department',
+                'Add a Role',
+                'Add an Employee',
+                'Update an Employee Role',
                 'Exit'
             ],
         }
     ]).then(response => {
         switch (response.Action) {
-            case 'View all departments':
+            case 'View all Departments':
                 viewDepartment();
                 break;
-            case 'View all roles':
+            case 'View all Roles':
                 viewRoles();
                 break;
-            case 'View all employees':
+            case 'View all Employees':
                 viewEmployees();
                 break;
-            case 'Add a department':
+            case 'Add a Department':
                 addDepartment();
                 break;
-            case 'Add a role':
+            case 'Add a Role':
                 addRole();
                 break;
-            case 'Add an employee':
+            case 'Add an Employee':
                 addEmployee();
                 break;
-            case 'Update employee role':
+            case 'Update an Employee Role':
                 updateEmployee();
                 break;
             case "Exit":
@@ -129,7 +129,7 @@ const addRole = () => {
     ]).then(answer => {
         connection.query(
             'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)',
-            [answer.title, answer.salary, answer.department_id],
+            [answer.title, answer.salary, answer.Dept_ID],
             (err, res) => {
                 if (err) throw err;
                 console.log('Role Added.')
